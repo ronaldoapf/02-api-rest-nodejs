@@ -47,11 +47,25 @@ npm run dev
 
 ### Executando as Migrations
 
+Para executar todas as migrations: 
+
+```bash
+# Executar todas as migrations
+npm run knex -- migrate:latest
+```
+
 Para criar uma nova migration:
 
 ```bash
 # Criar uma nova migration
 npm run knex -- migrate:make nome-da-migration
+```
+
+Para desfazer a última migration executada:
+
+```bash
+# Desfazer a última migration
+npm run knex -- migrate:rollback
 ```
 
 ### Localização das Migrations
