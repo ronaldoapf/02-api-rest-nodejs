@@ -34,6 +34,49 @@ npm install
 npm run dev
 ```
 
+## 🧪 Testes
+
+Este projeto utiliza **[Vitest](https://vitest.dev/)** como framework de testes e **[Supertest](https://github.com/visionmedia/supertest)** para testar as rotas HTTP da API.
+
+### Estrutura dos Testes
+
+Os testes estão localizados em:
+
+```
+📁 src/
+  └── 📁 test/
+      └── transactions.spec.ts
+```
+
+### Cobertura de Testes
+
+Atualmente, os seguintes cenários estão cobertos:
+
+- **Criação de transações**: Testa se é possível criar uma nova transação (crédito/débito) através da rota POST `/transactions`
+- **Listagem de transações**: Testa se é possível listar todas as transações do usuário através da rota GET `/transactions`, validando o funcionamento da autenticação via cookies de sessão
+
+### Como executar os testes
+
+```bash
+# Executar todos os testes
+npm test
+
+# Executar testes em modo watch (observa alterações)
+npm test -- --watch
+
+# Executar testes com relatório de cobertura
+npm test -- --coverage
+```
+
+### Sobre os Testes
+
+Os testes utilizam as seguintes práticas:
+
+- **beforeAll**: Inicializa o servidor Fastify antes de todos os testes
+- **afterAll**: Fecha o servidor após todos os testes
+- **Supertest**: Faz requisições HTTP simuladas para testar as rotas
+- **Cookies de sessão**: Os testes validam o fluxo de autenticação baseado em cookies, onde cada usuário possui suas próprias transações isoladas
+
 ## �️ Migrations
 
 **Migrations** são arquivos que controlam as mudanças no esquema do banco de dados de forma versionada. Elas funcionam como um histórico de alterações, permitindo que você crie, modifique ou delete tabelas e colunas de maneira organizada e rastreável.
